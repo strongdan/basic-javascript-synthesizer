@@ -5,7 +5,11 @@
     <title>title</title>
   </head>
   <body>
-  
+    <div style="background:black; height:500px;" 
+    onmousemove="osc.frequency.value = event.clientY;"> // frequency of sound based on mouse Y coordinate
+      <h1>Move your mouse here to change pitch</h1>    
+        
+    </div>
     <script>
     
     var audio_context = window.AudioContext || window.webkitAudioContext; // cross browser compatibility
@@ -13,6 +17,8 @@
     var con = new audio_context(); // instantiate an audio context
     var osc = con.createOscillator(); // create a new oscillator object
     osc.connect(con.destination); // connect oscillator to audio output
+    
+    osc.frequency.value = 600;
     
     osc.start();
     
