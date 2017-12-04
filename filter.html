@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Filtered Synth</title>
+    </head>
+
+  <body>
+
+  <div
+      style="background:black; height:500px;"
+      tabindex="1"
+      onmousemove="changeFilter(event.clientX, 
+                                event.clientY)"
+      onkeydown="setNote(event.key)"
+  >
+
+  </div>
+
+
+  <script>
+
+
+      var audio_context = window.AudioContext || window.webkitAudioContext;
+
+      var con = new audio_context();
+      // create an oscillator
+      var osc = con.createOscillator();
+      // create a filter
+      var filter = con.createBiquadFilter();
+      // we can reduce the gain on the filter 
+      // without using a gain node, which is handy...
+      filter.gain.value = 0.5;
+      // wire the oscillator into the filter
+      osc.connect(filter);
+      // wire the filter into the audio output
+      filter.connect(con.destination);
+
+      // set some properties on the oscillator and filter
+      osc.frequency.value = 600;
+      filter.frequency.value = 100;
+
+
+      osc.type='sawtooth';
+
+      osc.start();
+
+      function changeFilter(mx, my){
+          filter.frequency.value = mx* 10;
+          filter.Q.value = my  / 25;
+      }
+
+
+      function setNote(key){
+          if (key == "z"){
+              // play a c
+              osc.frequency.value = 261.63;
+          }
+          if (key == "x"){
+              // play a c
+              osc.frequency.value = 293.66;
+          }
+          if (key == "c"){
+              // play a c
+              osc.frequency.value = 329.63;
+          }
+          if (key == "v"){
+              // play a c
+              osc.frequency.value = 349.23;
+          }
+
+      }
+
+
+  </script>
+</html>
