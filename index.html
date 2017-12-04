@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+  
+    <script>
+    
+    var audio_context = window.AudioContext || window.webkitAudioContext; // cross browser compatibility
+    
+    var con = new audio_context(); // instantiate an audio context
+    var osc = con.createOscillator(); // create a new oscillator object
+    osc.connect(con.destination); // connect oscillator to audio output
+    
+    osc.start();
+    
+    </script>
+  </body>
+</html>
