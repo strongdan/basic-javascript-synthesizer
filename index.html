@@ -10,6 +10,14 @@
       <h1>Move your mouse here to change pitch</h1>    
         
     </div>
+    <div
+      style="background:gray; height:500px; color:orange;"
+      tabindex="1"
+      onkeydown="setNote(event.key)"
+      >
+        <h2>Press z,x,c or v after clicking here</h2>
+    </div>
+      
     <script>
     
     var audio_context = window.AudioContext || window.webkitAudioContext; // cross browser compatibility
@@ -22,6 +30,28 @@
     
     osc.start();
     
+      
+    function setNote(key){
+        // look at the value of key (the key the user pressed)
+        // and do different things depending what it is
+        if (key == "z"){// they pressed the z key
+            // play a c
+            osc.frequency.value = 261.63;
+            // this frequency value is from here: http://www.phy.mtu.edu/~suits/notefreqs.html
+        }
+        if (key == "x"){
+            // play a c
+            osc.frequency.value = 293.66;
+        }
+        if (key == "c"){
+            // play a c
+            osc.frequency.value = 329.63;
+        }
+        if (key == "v"){
+            // play a c
+            osc.frequency.value = 349.23;
+        }   
+    }
     </script>
   </body>
 </html>
