@@ -6,4 +6,4 @@ Introductory project for Futurelearn/Goldsmiths course Learn to Code Electronic 
 * [LFO modulated synth](http://danstrong.tech/basic-javascript-synthesizer/oscillator.html)
 * [Additive synth with envelopes](http://danstrong.tech/basic-javascript-synthesizer/envelope.html)
 * [Filtered synth](http://danstrong.tech/basic-javascript-synthesizer/filtered.html)
-* [NexusUI Slider](http://danstrong.tech/basic-javascript-synthesizer/nexusUI.html)
+* [NexusUI Slider](http://danstrong.tech/basic-javascript-synthesizer/NexusSlider.html)
