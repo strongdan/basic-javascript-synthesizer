@@ -3,23 +3,50 @@
     <title>Creating a Music Canvas using NexusUI</title>
     <script src="path/to/NexusUI.js"></script>
 </head>
+
+
 <body>
-    <canvas min="100" max="1000" id="slider1" nx="slider"></canvas>
+    <canvas min="100" max="1000" id="slider1" nx="slider"></canvas> 
+    
+    <!-- I added a start button so you can chhose when to start the sound...-->
+    <br>start:
+    <canvas id="startBtn" nx="button"></canvas>
+    
 </body>
 
+
 <script>
-    var audio_context = window.AudioContext || window.webkitAudioContext;
-    var con = new audio_context();
-    var osc = con.createOscillator();
-    osc.connect(con.destination);
-    osc.start();
-    var slider1;
-    nx.onload = function(){
-        slider1.on('*', slider1Changed);            
-    };
-    
-    function slider1Changed(date){
-        osc.frequency.value = data.value;
-    }
+
+var audio_context = window.AudioContext || window.webkitAudioContext;
+var con = new audio_context();
+
+var osc = con.createOscillator();
+osc.connect(con.destination);
+
+// these two variables will store the 
+// widgets so we can configure them
+var slider1, startBtn;
+
+// we configure the widgets once the nx library is loaded
+nx.onload = function(){
+    // if the slider changes, call the slider1Changed functoin
+    slider1.on('*', slider1Changed); 
+    // if the button is pressed, start the synth
+    startBtn.on('*', startTheSound);
+};
+
+// this is called when then button is clicked
+// or indeed, held down
+function startTheSound(data){
+    console.log(data);// have a look in the console
+    osc.start();// yes this throws an error as we should only call start once...
+}
+
+// this is called when the slider changes
+function slider1Changed(data){
+    console.log(data);// aggain, look in the console!
+    osc.frequency.value = data.value; // update the freq using the value from the slider
+}
+
 
 </script>
