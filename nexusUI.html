@@ -4,33 +4,22 @@
     <script src="path/to/NexusUI.js"></script>
 </head>
 <body>
-    
-
-    <canvas nx="position"></canvas>
-    <canvas nx="button"></canvas>
-    <canvas nx="multislider"></canvas>
-    <canvas nx="matrix"></canvas>
-    <canvas nx="select"></canvas>
-    <br>
-   <canvas nx="dial"></canvas>
-    <canvas nx="slider"></canvas>
-    <canvas nx="keyboard"></canvas>
-    <br>
-    <br><canvas nx="tilt"></canvas>
-    <canvas nx="metro"></canvas>
-    <canvas nx="range"></canvas>
-    <br><canvas nx="colors"></canvas>
-    <canvas nx="joints"></canvas>
-    <br><canvas nx="comment"></canvas>
-    <br><canvas nx="message"></canvas>
-    <br><canvas nx="number"></canvas>
-    <br><canvas nx="multitouch"></canvas>
-    <br><canvas nx="vinyl"></canvas>
-
-
+    <canvas min="100" max="1000" id="slider1" nx="slider"></canvas>
 </body>
 
 <script>
-
+    var audio_context = window.AudioContext || window.webkitAudioContext;
+    var con = new audio_context();
+    var osc = con.createOscillator();
+    osc.connect(con.destination);
+    osc.start();
+    var slider1;
+    nx.onload = function(){
+        slider1.on('*', slider1Changed);            
+    };
+    
+    function slider1Changed(date){
+        osc.frequency.value = data.value;
+    }
 
 </script>
