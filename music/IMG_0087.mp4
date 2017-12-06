@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="/968b46b718d4ee3a82ae98eca552d49b1df81f51.css?meteor_css_resource=true">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png?v=2bbkk2xBrR">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png?v=2bbkk2xBrR">
+	<link rel="icon" type="image/png" href="/icons/favicon-32x32.png?v=2bbkk2xBrR" sizes="32x32">
+	<link rel="icon" type="image/png" href="/icons/favicon-194x194.png?v=2bbkk2xBrR" sizes="194x194">
+	<link rel="icon" type="image/png" href="/icons/favicon-96x96.png?v=2bbkk2xBrR" sizes="96x96">
+	<link rel="icon" type="image/png" href="/icons/android-chrome-192x192.png?v=2bbkk2xBrR" sizes="192x192">
+	<link rel="icon" type="image/png" href="/icons/favicon-16x16.png?v=2bbkk2xBrR" sizes="16x16">
+	<link rel="manifest" href="/icons/manifest.json?v=2bbkk2xBrR">
+	<link rel="mask-icon" href="/icons/safari-pinned-tab.svg?v=2bbkk2xBrR" color="#b421cc">
+	<link rel="shortcut icon" href="/icons/favicon.ico?v=2bbkk2xBrR">
+	<meta name="apple-mobile-web-app-title" content="CodeCircle">
+	<meta name="application-name" content="CodeCircle">
+	<meta name="msapplication-TileColor" content="#9f00a7">
+	<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png?v=2bbkk2xBrR">
+	<meta name="msapplication-config" content="/icons/browserconfig.xml?v=2bbkk2xBrR">
+	<meta name="theme-color" content="#ffffff">
+<noscript>
+	<style>
+		body {
+			font-size: 32px;
+			text-align: center;
+			line-height: 100vh;
+            color:#fff;
+		}
+		body:after {
+			content: "Please enable JavaScript in your browser to view this site.";
+		}
+	</style>
+</noscript>
+
+</head>
+<body>
+
+
+
+<script type="text/javascript">__meteor_runtime_config__ = JSON.parse(decodeURIComponent("%7B%22meteorRelease%22%3A%22METEOR%401.3.2.4%22%2C%22meteorEnv%22%3A%7B%22NODE_ENV%22%3A%22production%22%2C%22TEST_METADATA%22%3A%22%7B%7D%22%7D%2C%22PUBLIC_SETTINGS%22%3A%7B%7D%2C%22ROOT_URL%22%3A%22https%3A%2F%2Flive.codecircle.com%22%2C%22ROOT_URL_PATH_PREFIX%22%3A%22%22%2C%22appId%22%3A%22svbdujyww0iz1y8c97c%22%2C%22autoupdateVersion%22%3A%222272664379f6475e5df8383c9595193c292bb877%22%2C%22autoupdateVersionRefreshable%22%3A%22b6d3621f7ebbf81699874fff85d545225ff6ad1e%22%2C%22autoupdateVersionCordova%22%3A%22none%22%7D"));</script>
+
+  <script type="text/javascript" src="/0674290d174fe24aa584372f70e77bfc11e95c5b.js?meteor_js_resource=true"></script>
+
+
+</body>
+</html>
