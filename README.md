@@ -7,3 +7,4 @@ Introductory project for Futurelearn/Goldsmiths course Learn to Code Electronic 
 * [Additive synth with envelopes](http://danstrong.tech/basic-javascript-synthesizer/envelope.html)
 * [Filtered synth](http://danstrong.tech/basic-javascript-synthesizer/filtered.html)
 * [NexusUI Slider](http://danstrong.tech/basic-javascript-synthesizer/nexus_slider.html)
+* [NexusUI Tilt Synth](http://danstrong.tech/basic-javascript-synthesizer/tilt.html)
