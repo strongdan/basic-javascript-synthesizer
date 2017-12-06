@@ -11,5 +11,5 @@ Introductory projects for Futurelearn/Goldsmiths course Learn to Code Electronic
 * [NexusUI Tilt Synth](http://danstrong.tech/basic-javascript-synthesizer/tilt.html)
 
 ### Drum Machines
-* [NexusUI High Hat](http://danstrong.tech/basic-javascript-synthesizer/high_hat.html)
-* [NexusUI Sample Clock](http://danstrong.tech/basic-javascript-synthesizer/sample_clock.html)
+* [High Hat](http://danstrong.tech/basic-javascript-synthesizer/high_hat.html)
+* [Sample Clock](http://danstrong.tech/basic-javascript-synthesizer/sample_clock.html)
