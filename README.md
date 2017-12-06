@@ -12,3 +12,4 @@ Introductory projects for Futurelearn/Goldsmiths course Learn to Code Electronic
 
 ### Drum Machines
 * [NexusUI High Hat](http://danstrong.tech/basic-javascript-synthesizer/high_hat.html)
+* [NexusUI High Hat](http://danstrong.tech/basic-javascript-synthesizer/sample_clock.html)
