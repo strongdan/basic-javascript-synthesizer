@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <canvas id="tilt" width="250px" nx="tilt"></canvas>
+    
+    <br>
+    <canvas id="startBtn" nx="button"></canvas>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+  // here is the audio conde
+
+      var audio_context = window.AudioContext || window.webkitAudioContext;
+      var con = new audio_context();
+
+      var osc = con.createOscillator();
+
+      osc.connect(con.destination);
+
+      /// now the user interface code
+
+      var tilt, startBtn;
+
+      // this is called when the nx library loads
+      nx.onload = function(){
+        // set up the UI widgets
+
+        // the tilt sensor calls the tiltChanged function
+        tilt.on('*', tiltChanged); 
+
+        // the start button starts up the 
+        // synth by calling the startSynth function
+        startBtn.on('*', startSynth);
+      };
+
+      // this is called when the tilt widget detects
+      // a tilt
+      function tiltChanged(data){
+          console.log(data);
+          osc.frequency.value = data.x * 500;
+      }
+
+
+      // on the iphone / mobile safari, 
+      // we have to start the oscillators
+      // in response to a user click otherwise, they won't 
+      // start. 
+
+      function startSynth(){
+          osc.start();    
+      }
+
+
+  </script>
+</body>
+</html>
