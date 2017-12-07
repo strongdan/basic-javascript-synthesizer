@@ -1,138 +1,127 @@
 <!DOCTYPE html>
-<html>
+  <html>
+    <head>
+        <title>Simple Drum Machine UI</title>
+        <link rel="stylesheet" href="normalize.css">
+    </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Simple Drum Machine UI</title>
-  <meta name="author" content="">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <body>
+        <!-- an example div with full window styling -->
 
-  <link href="css/normalize.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-</head>
+        <div 
+        tabindex="0" 
+        onkeydown="playHat()" 
+        style="background:black; position:absolute;
+    top:0; bottom:0; width:100%">
+            <canvas id="matrix" nx="matrix"></canvas>
+            </div>
 
-<body>
-    <div 
-        tabindex="0"
-        onkeydown="playHat()"
-        style="background:black; height:100%;"
-    >
-        <canvas id="matrix" nx="matrix"></canvas>
-    </div>
-    
-<script>
-
-var audio_context = window.AudioContext || window.webkitAudioContext;
-var con = new audio_context();
+            <script>
+                var audio_context = window.AudioContext || window.webkitAudioContext;
+                var con = new audio_context();
 
 
-var hat;
-var snare; 
+                var hat;
+                var snare;
 
-var seq = [
-    [0, 0, 0, 0, 0], 
-    [0, 0, 0, 0, 0], 
-    [0, 0, 0, 0, 0], 
-    
-];
+                var seq = [
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
 
-
-var step = 0;
-var interval = 0.125;
-var matrix;
-
-nx.onload = function(){
-    matrix.col = seq[0].length;
-    matrix.row = seq.length;
-    matrix.init();
-    
-    matrix.on('*', function(data){
-        if (data.row !== undefined){
-            seq[data.row][data.col] = data.level;
-        }
-    });
-};
+                ];
 
 
-loadSample('cl_hat_3001.wav', function (buffer){
-    hat = buffer; 
-});
-loadSample('brp_snrim1.wav', function (buffer){
-    snare = buffer; 
-});
+                var step = 0;
+                var interval = 0.125;
+                var matrix;
+
+                nx.onload = function() {
+                    matrix.col = seq[0].length;
+                    matrix.row = seq.length;
+                    matrix.init();
+
+                    matrix.on('*', function(data) {
+                        if (data.row !== undefined) {
+                            seq[data.row][data.col] = data.level;
+                        }
+                    });
+                };
+
+
+                loadSample('cl_hat_3001.wav', function(buffer) {
+                    hat = buffer;
+                });
+                loadSample('brp_snrim1.wav', function(buffer) {
+                    snare = buffer;
+                });
 
 
 
-function playSound(buffer, time){
-    var player = con.createBufferSource();
-    player.buffer = buffer;
-    player.loop = false;
-    player.connect(con.destination);  
-    player.start(time); 
-}
+                function playSound(buffer, time) {
+                    var player = con.createBufferSource();
+                    player.buffer = buffer;
+                    player.loop = false;
+                    player.connect(con.destination);
+                    player.start(time);
+                }
 
 
-// this code will wake up every (wait_time) ms 
-// and schedule a load of drum triggers on the clock
-// each time, remembering where it scheduled to in the future
-// so it does not repeat anything
-var wait_time = 0.25;
-var got_up_to;
+                // this code will wake up every (wait_time) ms 
+                // and schedule a load of drum triggers on the clock
+                // each time, remembering where it scheduled to in the future
+                // so it does not repeat anything
+                var wait_time = 0.25;
+                var got_up_to;
 
-setInterval(function(){
-    var now = con.currentTime;
-    
-   matrix.jumpToCol(step % seq[0].length);
-    
-    // how far into the future will we schedule? 
-    // we schedule beyond the next wait time as we cannot 
-    // rely on it being exactly 'wait_time' ms before 
-    // we get woken up again, therefore put in a few
-    // extra events on the scheduler to cover any delays
-    var max_future_time = now + (wait_time  * 1.5);
-    if (got_up_to > now) {// already scheduled up to this point
-        now = got_up_to;
-    }
-    
-    while (now <= max_future_time){
-        step ++;
-        if (seq[0][step % seq[0].length]){
-            playSound(hat, now);
-        }
-        
-        if (seq[1][step % seq[1].length]){
-            playSound(snare, now);
-        }
-        
-        
-        
-        now += interval;
-    }
-    got_up_to = now;
-    
-}, wait_time*1000);
+                setInterval(function() {
+                    var now = con.currentTime;
+
+                    matrix.jumpToCol(step % seq[0].length);
+
+                    // how far into the future will we schedule? 
+                    // we schedule beyond the next wait time as we cannot 
+                    // rely on it being exactly 'wait_time' ms before 
+                    // we get woken up again, therefore put in a few
+                    // extra events on the scheduler to cover any delays
+                    var max_future_time = now + (wait_time * 1.5);
+                    if (got_up_to > now) { // already scheduled up to this point
+                        now = got_up_to;
+                    }
+
+                    while (now <= max_future_time) {
+                        step++;
+                        if (seq[0][step % seq[0].length]) {
+                            playSound(hat, now);
+                        }
+
+                        if (seq[1][step % seq[1].length]) {
+                            playSound(snare, now);
+                        }
 
 
-function loadSample(url, callback){
-    var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    request.responseType = 'arraybuffer';
-    request.onload = function(){
-        var audioData = request.response;
-        con.decodeAudioData(audioData, function(buffer) {
-            console.log(buffer);
-            callback(buffer);
-        });
-    };
-    request.send();
-}
+
+                        now += interval;
+                    }
+                    got_up_to = now;
+
+                }, wait_time * 1000);
 
 
-    
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="js/script.js"></script>
-</body>
+                function loadSample(url, callback) {
+                    var request = new XMLHttpRequest();
+                    request.open('GET', url, true);
+                    request.responseType = 'arraybuffer';
+                    request.onload = function() {
+                        var audioData = request.response;
+                        con.decodeAudioData(audioData, function(buffer) {
+                            console.log(buffer);
+                            callback(buffer);
+                        });
+                    };
+                    request.send();
+                }
+            </script>
+    </body>
 
 </html>
